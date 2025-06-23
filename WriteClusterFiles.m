@@ -3,7 +3,7 @@
 %--- a) Specify CFT
 cft = 0.001;
 if ~exist('SPM','var') | isempty(SPM)
-    load(spm_select(1,'SPM.mat', 'Select SPM.mat'));
+    load(spm_select(1,'SPM.mat','Select SPM.mat'));
 end
 if length(SPM.xCon) > 1
     c = spm_input('Select contrast (index):','+0','i',1,1);
