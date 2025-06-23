@@ -1,6 +1,6 @@
 %--------- Compute approximate TDP bounds using TDPClusters
 
-%--- a) Specify CFT
+%--- a) Specify CFT/CDF
 cft = 0.001;
 if ~exist('SPM','var') | isempty(SPM)
     load(spm_select(1,'SPM.mat','Select SPM.mat'));
@@ -22,8 +22,8 @@ switch SPM.xCon(c).STAT
 end
 cft = spm_u(cft, df, SPM.xCon(c).STAT);  % convert p-value to statistic
 
-%--- b) Extract k-value from ClusterTDP-SPM output (minClusSz - 1)
-kval = 129-1;
+%--- b) Extract k-value from ClusterTDP-SPM output (minClusSz = minimum significant cluster size)
+kval = minClusSz-1;
 
 %--- c) Generate cluster info files
 V = spm_vol(fullfile(SPM.swd, SPM.xCon(1).Vspm.fname));
