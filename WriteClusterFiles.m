@@ -31,7 +31,7 @@ Tmap = spm_read_vols(V);
 
 % apply CFT & generate clusters
 Tmap(Tmap<cft) = 0;
-[L,NUM] = spm_bwlabel(Pmap);
+[L,NUM] = spm_bwlabel(Tmap);
 % iterate through clusters & export cluster info files
 for i = 1:NUM
     if sum(L(:)==i) > kval  % extract clusters with size > kval
